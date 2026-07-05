@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-gh-bg text-gh-fg;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer components {
+  /* Brand gradient text */
+  .text-gradient {
+    background: linear-gradient(
+      90deg,
+      #5865f2 0%,
+      #833eb5 30%,
+      #c13584 60%,
+      #e1306c 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 8s linear infinite;
+  }
+
+  /* Terminal blinking cursor */
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  /* Card with subtle border glow */
+  .card {
+    @apply bg-gh-surface border border-gh-border rounded-lg;
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+           px-4 py-2 rounded-md font-medium text-sm
+           transition-all focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-gh-accent
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-gh-accent text-white hover:bg-gh-accent/90;
+  }
+  .btn-secondary {
+    @apply btn bg-gh-surface border border-gh-border
+           hover:bg-gh-border/30 text-gh-fg;
+  }
+  .btn-ghost {
+    @apply btn hover:bg-gh-border/20 text-gh-fg;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full bg-gh-bg border border-gh-border rounded-md
+           px-3 py-2 text-sm text-gh-fg
+           placeholder:text-gh-muted
+           focus:border-gh-accent focus:outline-none
+           focus:ring-1 focus:ring-gh-accent
+           transition-colors;
+  }
+
+  /* Code block */
+  .code-block {
+    @apply bg-gh-bg border border-gh-border rounded-md
+           p-3 font-mono text-xs overflow-x-auto;
+  }
+
+  /* (removed unused diff-* and border-gradient helpers) */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover { background: #484f58; }

@@ -1,0 +1,47 @@
+name: Feature Request
+description: Suggest a new feature
+labels: ['enhancement']
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what you want GPush to do. Be as specific as you can.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      placeholder: I often push to repos with protected branches and want to skip the manual PR step...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What's your proposed solution?
+      placeholder: Add a "PR mode" push strategy that opens a PR instead of pushing to main directly
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: I could always open the PR manually, but that's 5 extra clicks per push
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups / examples
+      placeholder: |
+        ```
+        ┌────────────┐
+        │  Push mode │
+        ├────────────┤
+        │  ▸ Normal  │
+        │  ▸ Force   │
+        │  ▸ PR ⭐   │  ← new
+        └────────────┘
+        ```

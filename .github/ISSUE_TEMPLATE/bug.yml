@@ -1,0 +1,81 @@
+name: Bug Report
+description: Something isn't working as expected
+labels: ['bug']
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill in the sections below.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug
+      placeholder: I dropped a folder with 50 files, clicked Push, and got an error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: I expected the push to complete with all files uploaded
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to /new
+        2. Click "Sign in with GitHub"
+        3. Drop folder X
+        4. Click Push
+      value: '1. \n2. \n3. \n'
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: GPush URL
+      description: Where did the bug occur? (e.g. https://gpush.dev)
+      placeholder: https://gpush.dev
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: macOS 14.4
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs / error messages
+      placeholder: |
+        ```
+        TypeError: ...
+          at ...
+        ```
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      placeholder: Drag & drop or paste image URLs
